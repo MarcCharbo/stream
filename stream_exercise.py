@@ -63,5 +63,19 @@ class StreamProcessor(object):
         #
         # digits = self._stream.read(2)
 
+        while count < 10 and total < 200:
+          try:
+            digits = self._stream.read(2)
+            if len(digits) < 2:
+              break
+            digits = int(digits)
+            print (count, total)
+            count, total = (count + 1, total + digits)
+          except KeyError as e:
+            print (e)
 
         return count
+
+
+
+        
